@@ -6,6 +6,7 @@ class UserCreate(BaseModel):
     last_name: str
     email: EmailStr
     password: str
+    confirm_password: str
 
 class UserResponse(BaseModel):
     id: int
@@ -24,3 +25,25 @@ class UserLogin(BaseModel):
 class TokenResponse(BaseModel):
     access_token: str
     token_type: str
+
+class ForgotPasswordRequest(BaseModel):
+    email: EmailStr
+
+class ForgotPasswordResponse(BaseModel):
+    message: str
+
+class VerifyCodeRequest(BaseModel):
+    email: EmailStr
+    verification_code: str
+
+class VerifyCodeResponse(BaseModel):
+    access_token: str
+    message: str
+
+class ResetPasswordRequest(BaseModel):
+    password: str
+    confirm_password: str
+    access_token: str
+
+class ResetPasswordResponse(BaseModel):
+    message: str
