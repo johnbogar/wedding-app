@@ -12,7 +12,7 @@ function ForgotPassword() {
                     <label>Email</label>
                     <input type="email" />
                 </div>
-                <button type="submit">Get code</button>
+            <button type="submit">Get code</button>
             </form>
             <label>Successful requests reroute here </label>
             <Link to="/verify-code">Success</Link>

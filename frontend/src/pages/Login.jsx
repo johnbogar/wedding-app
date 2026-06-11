@@ -19,6 +19,10 @@ function Login() {
       <Link to="/create-account">No account? Create one</Link>
       <br />
       <Link to="/forgot-password">Forgot password?</Link>
+      <br />
+      <label>Successful logins reroute here </label>
+      <br />
+        <Link to="/home">Success</Link>
     </div>
   )
 }

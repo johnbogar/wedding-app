@@ -6,12 +6,18 @@ function VerifyCode() {
             <Link to="/forgot-password">Back to forgot password</Link>
             <h1>Boda Social</h1>
             <form>
-                <h2>Enter verification code</h2>
-                <input type="text" />
+                <div>
+                    <h2>Enter verification code</h2>
+                    <input type="text" />
+                </div>
                 <button type="submit">Verify code</button>
-                <h4>Didn't get a code?</h4>
-                <Link to="/forgot-password">Resend code</Link>
+                <div>
+                    <h4>Didn't get a code?</h4>
+                    <Link to="/forgot-password">Resend code</Link>
+                </div>
             </form>
+            <label>Successful requests reroute here </label>
+            <Link to="/reset-password">Success</Link>
         </div>
     )
 }

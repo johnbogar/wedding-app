@@ -3,6 +3,8 @@ import Login from './pages/Login'
 import CreateAccount from './pages/CreateAccount'
 import ForgotPassword from './pages/ForgotPassword'
 import VerifyCode from './pages/VerifyCode'
+import ResetPassword from './pages/ResetPassword'
+import Home from './pages/Home'
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
         <Route path="/create-account" element={<CreateAccount />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/verify-code" element={<VerifyCode />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/home" element={<Home />} />
       </Routes>
     </BrowserRouter>
   )
