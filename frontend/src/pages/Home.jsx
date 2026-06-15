@@ -1,9 +1,16 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Home() {
+  const navigate = useNavigate()
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [activeTab, setActiveTab] = useState('photos')
+
+  const handleLogout = () => {
+    localStorage.removeItem('access_token')
+    navigate('/')
+  }
 
   return (
     <div>
@@ -20,7 +27,7 @@ function Home() {
             <br />
             <Link to="/settings">Settings</Link>
             <br />
-            <Link to="/">Logout</Link>
+            <button onClick={handleLogout}>Logout</button>
           </div>
         )}
       </div>
