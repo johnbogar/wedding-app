@@ -1,5 +1,6 @@
 from pydantic import BaseModel, EmailStr
 from datetime import datetime
+from typing import Optional
 
 class UserCreate(BaseModel):
     first_name: str
@@ -25,6 +26,7 @@ class UserLogin(BaseModel):
 class TokenResponse(BaseModel):
     access_token: str
     token_type: str
+    rsvp_status: Optional[bool]
 
 class ForgotPasswordRequest(BaseModel):
     email: EmailStr

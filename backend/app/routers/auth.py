@@ -61,8 +61,9 @@ def login(user: UserLogin, db: Session = Depends(get_db)):
         )
     
     access_token = create_access_token(data={"sub": db_user.email})
+    rsvp_status = db_user.rsvp_status
     
-    return TokenResponse(access_token=access_token, token_type="bearer")
+    return TokenResponse(access_token=access_token, token_type="bearer", rsvp_status=rsvp_status)
 
 @router.get("/me")
 def get_me(current_user: dict = Depends(get_current_user)):

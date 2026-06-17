@@ -1,3 +1,4 @@
+****SPRINT 1****
 As a guest, I want to create an account so that I can rsvp, view the schedule, etc...
 
 Acceptance criteria:
@@ -33,3 +34,17 @@ As a guest, I want to log out so that my session ends
 Acceptance criteria:
 Given a user is logged in, when they press the logout button and it is successful, they are redirected to the login page and shown a message confirming a successful logout
 Given a user is logged in, when they press the logout button and it is unsuccessful, they are shown an error message saying the logout was unsuccessful
+
+****SPRINT 2****
+As a guest, I want to RSVP so that I can tell the couple whether I'm coming or not, my song request, which people I'm bringing and my dietary restrictions, and so that I can access the rest of the app.
+
+Acceptance criteria:
+Given an invited user, when they have logged in and they have not RSVP'd and they have filled out all the RSVP questions, then their data is saved and they are redirected to the home page with a success message.
+Given an invited user, when they have logged in and they have RSVP'd, then they are taken directly to the home page
+Given an invited user, when they have RSVP'd 'Maybe' and they login, then they are taken to the home page and have a persistent reminder banner stating they still need to RSVP and telling them the due date
+Given an invited user, when they have logged in and responded with a 'No' RSVP, then they are taken to the home page and can access the app normally.
+
+As a guest, I want to be reminded of the due date to RSVP, so that I don't miss my opportunity to go to the wedding.
+
+Acceptance criteria:
+Given an invited user, when they have logged in and responded with a 'Maybe' RSVP, then they are shown a reminder banner until they give a 'Yes' or 'No' response or until the due date passes, at which point, they retain normal access without any banner.

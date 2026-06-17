@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy import Column, Integer, String, DateTime, Boolean
 from sqlalchemy.sql import func
 from app.core.database import Base
 
@@ -13,3 +13,7 @@ class User(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     verification_code = Column(String, nullable=True)
     code_exp = Column(DateTime(timezone=True), nullable=True)
+    rsvp_status = Column(Boolean, nullable=True)
+    guest_count = Column(Integer, nullable=True)
+    dietary_restrictions = Column(String, nullable=True)
+    song_request = Column(String, nullable=True)
