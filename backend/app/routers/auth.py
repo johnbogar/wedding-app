@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from app.core.database import get_db
 from app.models.user import User
-from app.schemas.user import UserCreate, UserResponse, UserLogin, TokenResponse, ForgotPasswordRequest, ForgotPasswordResponse, VerifyCodeRequest, VerifyCodeResponse, ResetPasswordRequest, ResetPasswordResponse
+from app.schemas.user import UserCreate, UserResponse, UserLogin, TokenResponse, ForgotPasswordRequest, ForgotPasswordResponse, VerifyCodeRequest, VerifyCodeResponse, ResetPasswordRequest, ResetPasswordResponse, RsvpRequest, RsvpResponse
 from app.core.security import create_access_token, get_current_user, verify_token
 from passlib.context import CryptContext
 from datetime import datetime, timedelta
@@ -141,3 +141,23 @@ def reset_password(request: ResetPasswordRequest, db: Session = Depends(get_db))
     db.commit()
 
     return ResetPasswordResponse(message="Password successfully reset")
+
+@router.post("/rsvp", response_model=RsvpResponse)
+def submit_rsvp(request: RsvpRequest, current_user: dict = Depends(get_current_user), db: Session = Depends(get_db)):
+    email = current_user.get("sub")
+
+    db_user = db.query(User).filter(User.email == email).first()
+
+    if not db_user:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid credentials"
+        )
+
+    db_user.rsvp_status = request.rsvp_status
+    db_user.guest_count = request.guest_count
+    db_user.dietary_restrictions = request.dietary_restrictions
+    db_user.song_request = request.song_request
+    db.commit()
+
+    return RsvpResponse(message="You have successfully RSVP'd!", rsvp_status=db_user.rsvp_status)
