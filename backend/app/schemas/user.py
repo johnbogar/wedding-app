@@ -51,7 +51,7 @@ class ResetPasswordResponse(BaseModel):
     message: str
 
 class RsvpRequest(BaseModel):
-    rsvp_status: bool
+    rsvp_status: Optional[bool]
     guest_count: Optional[int] = None
     dietary_restrictions: Optional[str] = None
     song_request: Optional[str] = None

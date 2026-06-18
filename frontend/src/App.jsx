@@ -6,6 +6,7 @@ import VerifyCode from './pages/VerifyCode'
 import ResetPassword from './pages/ResetPassword'
 import Home from './pages/Home'
 import ProtectedRoute from './components/ProtectedRoute'
+import Rsvp from './pages/Rsvp'
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Home />
           </ProtectedRoute>
         } />
+        <Route path="/rsvp" element={<Rsvp />} />
       </Routes>
     </BrowserRouter>
   )

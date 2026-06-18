@@ -23,7 +23,13 @@ function Login() {
             })
             console.log('Success:', response.data)
             localStorage.setItem('access_token', response.data.access_token)
-            navigate('/home')
+            localStorage.setItem('rsvp_status', response.data.rsvp_status)
+
+            if (response.data.rsvp_status === null) {
+                navigate('/rsvp')
+            } else {
+                navigate('/home')
+            }
         } catch (error) {
             if (error.response) {
                 setErrorMessage(error.response.data.detail)
@@ -62,9 +68,6 @@ function Login() {
             <br />
             <Link to="/forgot-password">Forgot password?</Link>
             <br />
-            <label>Successful logins reroute here </label>
-            <br />
-            <Link to="/home">Success</Link>
         </div>
   )
 }
