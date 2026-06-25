@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core.database import engine, Base
-from app.models import user
+from app.models import user, invited_guests
 from app.routers import auth
 
 app = FastAPI()

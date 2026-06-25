@@ -48,3 +48,15 @@ As a guest, I want to be reminded of the due date to RSVP, so that I don't miss 
 
 Acceptance criteria:
 Given an invited user, when they have logged in and responded with a 'Maybe' RSVP, then they are shown a reminder banner until they give a 'Yes' or 'No' response or until the due date passes, at which point, they retain normal access without any banner.
+
+As the host, I want only invited guests to be able to register, so that uninvited people can't access private wedding details.
+
+Acceptance criteria:
+Given an invited guest, when they register with their email that is in the database, then their registration is successful.
+Given an uninvited person, when they register with an email that does not exist in the database, then they are shown a helpful error message.
+
+As a guest, I want to invite my alotted extra guests to use the app, so that we can all view wedding details and post pictures and events.
+
+Acceptance criteria:
+Given an invited user, when they fill out the RSVP form and have extra guests and enter those guests' names and emails, then they are added to the database and sent invitations to register for the app.
+Given an invited user, when they fill out the RSVP form with guests that have already been added to the database, then they are given a message under the appropriate field that says "This guest has already been invited"
