@@ -10,6 +10,7 @@ function CreateAccount() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
+    const [inviteCode, setInviteCode] = useState('')
 
     const [errorMessage, setErrorMessage] = useState('')
 
@@ -23,6 +24,7 @@ function CreateAccount() {
             email: email,
             password: password,
             confirm_password: confirmPassword,
+            invite_code: inviteCode,
           })
           console.log('Success:', response.data)
           navigate('/')
@@ -79,6 +81,14 @@ function CreateAccount() {
                 type="password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+        </div>
+        <div>
+            <label>Invite Code</label>
+            <input
+                type="text"
+                value={inviteCode}
+                onChange={(e) => setInviteCode(e.target.value)}
             />
         </div>
         {errorMessage && <p>{errorMessage}</p>}

@@ -7,6 +7,11 @@ from app.core.security import create_access_token, get_current_user, verify_toke
 from passlib.context import CryptContext
 from datetime import datetime, timedelta
 import random
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+INVITE_CODE = os.getenv("INVITE_CODE")
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
@@ -18,6 +23,13 @@ def hash_password(password: str) -> str:
 @router.post("/register", response_model=UserResponse, status_code=status.HTTP_201_CREATED)
 def register(user: UserCreate, db: Session = Depends(get_db)):
     existing_user = db.query(User).filter(User.email == user.email).first()
+
+    if user.invite_code != INVITE_CODE:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Invite code is incorrect. If this problem persists, reach out to JP."
+        )
+
     if existing_user:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
