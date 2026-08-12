@@ -44,7 +44,9 @@ function Home() {
         <button onClick={() => setActiveTab('activities')}>Activities</button>
       </div>
 
-      <button>+ Post</button>
+      <button onClick={() => navigate(activeTab === 'photos' ? '/post-photo' : '/post-activity')}>
+        + Post
+      </button>
 
       <div>
         {activeTab === 'photos' && <p>Photo feed goes here</p>}

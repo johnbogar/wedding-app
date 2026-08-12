@@ -7,6 +7,7 @@ import ResetPassword from './pages/ResetPassword'
 import Home from './pages/Home'
 import ProtectedRoute from './components/ProtectedRoute'
 import Rsvp from './pages/Rsvp'
+import PostPhoto from './pages/PostPhoto'
 
 function App() {
   return (
@@ -22,7 +23,16 @@ function App() {
             <Home />
           </ProtectedRoute>
         } />
-        <Route path="/rsvp" element={<Rsvp />} />
+        <Route path="/rsvp" element={
+          <ProtectedRoute>
+            <Rsvp /> 
+          </ProtectedRoute>
+        } />
+        <Route path="/post-photo" element={
+          <ProtectedRoute>
+            <PostPhoto />
+          </ProtectedRoute>
+        } />
       </Routes>
     </BrowserRouter>
   )
