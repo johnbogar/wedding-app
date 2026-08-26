@@ -8,6 +8,7 @@ import Home from './pages/Home'
 import ProtectedRoute from './components/ProtectedRoute'
 import Rsvp from './pages/Rsvp'
 import PostPhoto from './pages/PostPhoto'
+import PostActivity from './pages/PostActivity'
 
 function App() {
   return (
@@ -31,6 +32,11 @@ function App() {
         <Route path="/post-photo" element={
           <ProtectedRoute>
             <PostPhoto />
+          </ProtectedRoute>
+        } />
+        <Route path="/post-activity" element={
+          <ProtectedRoute>
+            <PostActivity />
           </ProtectedRoute>
         } />
       </Routes>
